@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise 😏</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #enveloppe {
+      font-size: 120px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #enveloppe:hover {
+      transform: scale(1.2);
+    }
+
+    #videoBox {
+      display: none;
+      animation: pop 0.8s ease-out;
+    }
+
+    video {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0) translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="enveloppe">✉️</div>
+
+<div id="videoBox">
+  <video id="video" controls>
+    <source src="video.mp4" type="video/mp4">
+    Ton navigateur ne supporte pas la vidéo.
+  </video>
+</div>
+
+<script>
+  document.getElementById("enveloppe").onclick = () => {
+    document.getElementById("enveloppe").style.display = "none";
+    document.getElementById("videoBox").style.display = "block";
+    document.getElementById("video").play();
+  };
+</script>
+
+</body>
+</html>
